@@ -1,7 +1,7 @@
 package database
 
 import (
-	"fmt"
+	"goBackend/models"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -14,5 +14,5 @@ func Connect() {
 		panic("Could not connect to the database")
 	}
 
-	fmt.Println(db)
+	db.AutoMigrate(&models.User{})
 }
